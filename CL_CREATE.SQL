@@ -1,4 +1,9 @@
-use schema temp.public ; 
+--!jinja
+
+CREATE SCHEMA temp.{{env}} ;
+
+use schema temp.{{env}} ; 
+
 create or replace TABLE TEMP.DG.CUSTOMER_LOYALTY_v2 (
 	CUSTOMER_ID NUMBER(38,0),
 	FIRST_NAME VARCHAR(16777216) WITH TAG (SNOWFLAKE.CORE.PRIVACY_CATEGORY='IDENTIFIER', SNOWFLAKE.CORE.SEMANTIC_CATEGORY='NAME'),
